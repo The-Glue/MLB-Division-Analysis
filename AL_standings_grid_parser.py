@@ -2,9 +2,9 @@ import pandas as pd
 
 # Define division mappings for 2007-2009
 divisions_2007_2009 = {
-    'NL East': ['WAS', 'ATL', 'FLA', 'PHI', 'NYM'],
-    'NL Central': ['PIT', 'MIL', 'CIN', 'CHC', 'STL', 'HOU'],
-    'NL West': ['ARI', 'LA', 'SF', 'COL', 'SD']
+    'AL East': ['BAL', 'NYY', 'BOS', 'TB', 'TOR'],
+    'AL Central': ['CLE', 'KC', 'CWS', 'MIN', 'DET'],
+    'AL West': ['OAK', 'TEX', 'SEA', 'LAA' ]
 }
 
 # Function to select the division dictionary for 2007-2009
@@ -19,7 +19,7 @@ for year in range(2007, 2010):
     print(f"\nProcessing season: {year}")
     
     # Load the CSV for the current year, skipping the first two rows
-    df = pd.read_csv(f'nl_standings_{year}.csv', skiprows=2)
+    df = pd.read_csv(f'al_standings_{year}.csv', skiprows=2)
 
     # Extract team names (the first column after skipping the first two rows)
     teams = df['TEAMS'].tolist()
@@ -90,7 +90,7 @@ for year in range(2007, 2010):
     })
 
     # Save to separate CSVs for each year
-    division_records.to_csv(f'divisions_nl_{year}.csv', index=False)
-    non_division_records.to_csv(f'non_divisions_nl_{year}.csv', index=False)
+    division_records.to_csv(f'divisions_al_{year}.csv', index=False)
+    non_division_records.to_csv(f'non_divisions_al_{year}.csv', index=False)
 
     print(f"\nDivision and non-division records for {year} saved to CSV.")
